@@ -1,10 +1,12 @@
 # Solid Algo Wallets Example
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c51a86ab-762d-4caa-ab3a-1668f5befaa5/deploy-status)](https://app.netlify.com/sites/solid-algo-wallets-example/deploys)
+
 The Solid Algo Wallets Example provides a working demonstration of a SolidJS web application that integrates Algorand wallets via the [solid-algo-wallets](https://github.com/SilentRhetoric/solid-algo-wallets) library.
 
 The example app utilizes [Vite](https://vitejs.dev) dev tooling, [Tailwind CSS](https://tailwindcss.com) styles, and [daisyUI](https://daisyui.com) components.
 
-This work has been performed with support from the Algorand Foundation xGov Grants Program
+This work has been performed with support from the Algorand Foundation xGov Grants Program.
 
 ## Quick Start
 
