@@ -4,7 +4,7 @@ import githubLogo from "./assets/github-mark.svg"
 import { TransactionSignerAccount } from "@algorandfoundation/algokit-utils/types/account"
 import * as algokit from "@algorandfoundation/algokit-utils"
 import { AtomicTransactionComposer, makePaymentTxnWithSuggestedParamsFromObject } from "algosdk"
-import { useWallet, useNetwork, NetworkName } from "solid-algo-wallets"
+import { UseSolidAlgoWallets, UseNetwork, NetworkName } from "solid-algo-wallets"
 
 export function ellipseString(string = "", width = 4): string {
   return `${string.slice(0, width)}...${string.slice(-width)}`
@@ -20,8 +20,8 @@ const App: Component = () => {
     disconnectWallet,
     walletInterfaces,
     transactionSigner,
-  } = useWallet
-  const { algodClient, activeNetwork, setActiveNetwork, networkNames, getTxUrl } = useNetwork
+  } = UseSolidAlgoWallets
+  const { algodClient, activeNetwork, setActiveNetwork, networkNames, getTxUrl } = UseNetwork
   const [confirmedTxn, setConfirmedTxn] = createSignal("")
 
   onMount(() => reconnectWallet())
@@ -31,7 +31,7 @@ const App: Component = () => {
     signer: transactionSigner,
   }))
 
-  async function sendTestTxn() {
+  async function sendTxn() {
     setConfirmedTxn("")
     const suggestedParams = await algodClient().getTransactionParams().do()
 
@@ -51,7 +51,7 @@ const App: Component = () => {
   }
 
   return (
-    <div class="flex flex-col items-center justify-center p-4 text-center">
+    <div class="flex h-screen flex-col items-center justify-start p-4 text-center">
       <img
         src={solidLogo}
         class="logo"
@@ -72,7 +72,7 @@ const App: Component = () => {
         </a>
       </div>
       <select
-        class="select select-accent m-1 w-60 max-w-xs"
+        class="select select-accent m-1 max-w-xs"
         onChange={(e) => setActiveNetwork(e.target.value as NetworkName)}
         value={activeNetwork()}
       >
@@ -92,7 +92,7 @@ const App: Component = () => {
             <p>Address: {ellipseString(address())}</p>
             <button
               class="btn btn-accent m-1 w-60"
-              onClick={() => sendTestTxn()}
+              onClick={() => sendTxn()}
               disabled={activeWallet() === undefined}
               aria-label="Send 0A transaction"
             >
@@ -123,16 +123,26 @@ const App: Component = () => {
           </>
         }
       >
-        <For each={Object.values(walletInterfaces)}>
-          {(wallet) => (
-            <button
-              class="btn btn-accent m-1 w-60"
-              onClick={() => connectWallet(wallet)}
-            >
-              {wallet.image()}
-            </button>
-          )}
-        </For>
+        <div class="flex flex-col gap-1">
+          <For each={Object.values(walletInterfaces)}>
+            {(wallet) => (
+              <div class="flex gap-1">
+                <button
+                  class="btn btn-accent w-20"
+                  onClick={() => connectWallet(wallet)}
+                >
+                  {wallet.icon()}
+                </button>
+                <button
+                  class="btn btn-accent w-60"
+                  onClick={() => connectWallet(wallet)}
+                >
+                  {wallet.image()}
+                </button>
+              </div>
+            )}
+          </For>
+        </div>
       </Show>
     </div>
   )
