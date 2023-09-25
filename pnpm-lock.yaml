@@ -12,8 +12,8 @@ dependencies:
     specifier: 2.4.0
     version: 2.4.0
   solid-algo-wallets:
-    specifier: ^0.0.8
-    version: 0.0.8(react@18.2.0)(solid-js@1.7.12)
+    specifier: ^0.0.11
+    version: 0.0.11(react@18.2.0)(solid-js@1.7.12)
   solid-js:
     specifier: ^1.7.12
     version: 1.7.12
@@ -1430,7 +1430,7 @@ packages:
   /@walletconnect/window-metadata@1.0.0:
     resolution: {integrity: sha512-9eFvmJxIKCC3YWOL97SgRkKhlyGXkrHwamfechmqszbypFspaSk+t2jQXAEU7YClHF6Qjw5eYOmy1//zFi9/GA==}
     dependencies:
-      '@walletconnect/window-getters': 1.0.0
+      '@walletconnect/window-getters': 1.0.1
     dev: false
 
   /@walletconnect/window-metadata@1.0.1:
@@ -1594,7 +1594,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001539
-      electron-to-chromium: 1.4.528
+      electron-to-chromium: 1.4.529
       node-releases: 2.0.13
       update-browserslist-db: 1.0.13(browserslist@4.21.11)
     dev: true
@@ -1778,8 +1778,8 @@ packages:
       stream-shift: 1.0.1
     dev: false
 
-  /electron-to-chromium@1.4.528:
-    resolution: {integrity: sha512-UdREXMXzLkREF4jA8t89FQjA8WHI6ssP38PMY4/4KhXFQbtImnghh4GkCgrtiZwLKUKVD2iTVXvDVQjfomEQuA==}
+  /electron-to-chromium@1.4.529:
+    resolution: {integrity: sha512-6uyPyXTo8lkv8SWAmjKFbG42U073TXlzD4R8rW3EzuznhFS2olCIAfjjQtV2dV2ar/vRF55KUd3zQYnCB0dd3A==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -2648,8 +2648,8 @@ packages:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
     dev: false
 
-  /solid-algo-wallets@0.0.8(react@18.2.0)(solid-js@1.7.12):
-    resolution: {integrity: sha512-GYu1HUWuWxEBUE/0XLWlBgdNzMUjI30bTFxfSfnMabbH1hnTgQ4BwfLy6p/VHNk/TafVvaLZlNumXlijVmi82A==}
+  /solid-algo-wallets@0.0.11(react@18.2.0)(solid-js@1.7.12):
+    resolution: {integrity: sha512-nwrS7AjVaTQy5my/gor4waNb7hWwjsY0sZDRsukLhub87HRs0QoLdgYj5zyQSaRoC9pHdT6I8QWQd3MdAj06gw==}
     engines: {node: '>=18', pnpm: '>=8.6.0'}
     peerDependencies:
       solid-js: ^1.7.11
