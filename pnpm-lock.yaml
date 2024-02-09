@@ -12,8 +12,8 @@ dependencies:
     specifier: 2.7.0
     version: 2.7.0
   solid-algo-wallets:
-    specifier: ^0.1.6
-    version: 0.1.6(react@18.2.0)(solid-js@1.8.11)
+    specifier: ^0.1.7
+    version: 0.1.7(react@18.2.0)(solid-js@1.8.11)
   solid-js:
     specifier: ^1.8.11
     version: 1.8.11
@@ -3276,8 +3276,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  /solid-algo-wallets@0.1.6(react@18.2.0)(solid-js@1.8.11):
-    resolution: {integrity: sha512-7FkRMoxNbYqS5PzyYU9Ce/3QhJjOSH7mmQHF8LjvLD2OlauDie69Wa/RSt7AUPyOfkQlMsY0+FvJxoLHoB0VHQ==}
+  /solid-algo-wallets@0.1.7(react@18.2.0)(solid-js@1.8.11):
+    resolution: {integrity: sha512-knObJMmbCzhRYooGgad+kLPJatSzi1rcevmG0h7+YIcJ3a38jwtgIhE2ByHlOnrP86pHB+9IiYP97Gmc/mz+Qw==}
     engines: {node: '>=18', pnpm: '>=8.6.0'}
     peerDependencies:
       solid-js: ^1.8.11
