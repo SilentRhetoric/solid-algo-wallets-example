@@ -1,6 +1,8 @@
+This repository has been archived as Algorand wallets integration for SolidJS is now provided by the excellent [Use Wallet](https://github.com/TxnLab/use-wallet) library.
+
 # Solid Algo Wallets Example
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c51a86ab-762d-4caa-ab3a-1668f5befaa5/deploy-status)](https://app.netlify.com/sites/solid-algo-wallets-example/deploys)
+<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/c51a86ab-762d-4caa-ab3a-1668f5befaa5/deploy-status)](https://app.netlify.com/sites/solid-algo-wallets-example/deploys) -->
 
 The Solid Algo Wallets Example provides a working demonstration of a SolidJS web application that integrates Algorand wallets via the [solid-algo-wallets](https://github.com/SilentRhetoric/solid-algo-wallets) library.
 
