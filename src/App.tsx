@@ -27,28 +27,19 @@ const App: Component = () => {
 
   onMount(() => reconnectWallet())
 
-  const transactionSignerAccount = createMemo<TransactionSignerAccount>(() => ({
-    addr: address(),
-    signer: transactionSigner,
-  }))
+  const transactionSignerAccount = createMemo(() => algokit.transactionSignerAccount(transactionSigner, address()))
 
   async function sendTxn() {
     setConfirmedTxn("")
-    const suggestedParams = await algodClient().getTransactionParams().do()
 
-    const payTxn = makePaymentTxnWithSuggestedParamsFromObject({
-      from: address(),
-      to: address(),
-      amount: 0,
-      suggestedParams,
-    })
-    const txn = await algokit.getTransactionWithSigner(payTxn, transactionSignerAccount())
+    const result = await algokit.transferAlgos({
+      amount: (0).algos(),
+      from: transactionSignerAccount(),
+      to: transactionSignerAccount()
+    }, algodClient())
 
-    const atc = new AtomicTransactionComposer()
-    atc.addTransaction(txn)
-    const result = await atc.execute(algodClient(), 4)
     console.log("Txn confirmed: ", result)
-    setConfirmedTxn(result.txIDs[0])
+    setConfirmedTxn(result.transaction.txID())
   }
 
   return (
