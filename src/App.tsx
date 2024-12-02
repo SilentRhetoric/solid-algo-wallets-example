@@ -1,8 +1,6 @@
 import { For, type Component, Show, createMemo, onMount, createSignal } from "solid-js"
 import solidLogo from "./assets/logo.svg"
 import githubLogo from "./assets/github-mark.svg"
-import { TransactionSignerAccount } from "@algorandfoundation/algokit-utils/types/account"
-import * as algokit from "@algorandfoundation/algokit-utils"
 import { AtomicTransactionComposer, makePaymentTxnWithSuggestedParamsFromObject } from "algosdk"
 import { UseSolidAlgoWallets, UseNetwork, NetworkName } from "solid-algo-wallets"
 import algonode from "./assets/algonode.png"
@@ -27,11 +25,6 @@ const App: Component = () => {
 
   onMount(() => reconnectWallet())
 
-  const transactionSignerAccount = createMemo<TransactionSignerAccount>(() => ({
-    addr: address(),
-    signer: transactionSigner,
-  }))
-
   async function sendTxn() {
     setConfirmedTxn("")
     const suggestedParams = await algodClient().getTransactionParams().do()
@@ -42,10 +35,12 @@ const App: Component = () => {
       amount: 0,
       suggestedParams,
     })
-    const txn = await algokit.getTransactionWithSigner(payTxn, transactionSignerAccount())
 
     const atc = new AtomicTransactionComposer()
-    atc.addTransaction(txn)
+    atc.addTransaction({
+      signer: transactionSigner,
+      txn: payTxn
+    })
     const result = await atc.execute(algodClient(), 4)
     console.log("Txn confirmed: ", result)
     setConfirmedTxn(result.txIDs[0])
